@@ -28,13 +28,6 @@ def int_to_roman(num):
 app = Flask(__name__)
 
 
-#
-@app.route('/roman', methods=['GET'])
-def roman(number_decimal, number_roman):
-    return render_template('result.html', number_decimal=number_decimal, number_roman=number_roman, developer_name="Alican KAYIKCI")
- 
-
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -48,6 +41,13 @@ def index():
             return render_template('index.html', not_valid = True)
     else:
         return render_template('index.html', not_valid = False, developer_name="Alican KAYIKCI")
+
+
+#
+@app.route('/roman/<number_decimal>/<number_roman>', methods=['GET'])
+def roman(number_decimal, number_roman):
+    return render_template('result.html', number_decimal=number_decimal, number_roman=number_roman, developer_name="Alican KAYIKCI")
+ 
 
 # Add a statement to run the Flask application which can be reached from any host on port 80.
 if __name__ == '__main__':
