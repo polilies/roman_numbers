@@ -38,7 +38,7 @@ def index():
             roman_number = int_to_roman(number)
             return redirect(url_for('roman', number_decimal=number, number_roman= roman_number))
         else:
-            return render_template('index.html', not_valid = True)
+            return render_template('index.html', not_valid = True, developer_name="Alican KAYIKCI") 
     else:
         return render_template('index.html', not_valid = False, developer_name="Alican KAYIKCI")
 
